@@ -41,6 +41,37 @@ Runn these three agents in paralel at the same time:
 - [ ] Create a reference list of similar issues or PRs (e.g., `#123`, `#456`)
 - [ ] Note any team conventions discovered in `CLAUDE.md` or team documentation
 
+### 1.5. Check Prior Lessons Learned
+
+<thinking>
+Before finalizing the plan, check if similar work has been done before and what was learned.
+</thinking>
+
+**Search for relevant lessons:**
+
+```bash
+# Search docs/solutions/ for keywords related to this feature
+# Look for: deployment constraints, security issues, architectural pivots
+```
+
+- [ ] Search `docs/solutions/` for keywords from the feature description
+- [ ] Check `docs/solutions/patterns/` for critical patterns that apply
+- [ ] Check `docs/solutions/planning-methodology/` for process lessons
+
+**If relevant lessons found, incorporate into the plan:**
+
+- Add deployment/serverless constraints to Technical Considerations
+- Add security requirements to Acceptance Criteria
+- Add known pitfalls to Risk Analysis
+- Reference the lesson doc in References section
+
+**Example integration:**
+```markdown
+## Risk Analysis
+- **[From prior lesson]** Serverless environments kill setInterval - use external scheduler
+  See: docs/solutions/planning-methodology/plan-divergence-lessons-20251129.md
+```
+
 ### 2. Issue Planning & Structure
 
 <thinking>

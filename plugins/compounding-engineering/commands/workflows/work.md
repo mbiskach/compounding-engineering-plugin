@@ -204,6 +204,38 @@ This command takes a work document (plan, specification, or todo file) and execu
    - Note any follow-up work needed
    - Suggest next steps if applicable
 
+### Phase 5: Capture Learnings
+
+After PR is created, check if anything unexpected came up worth documenting.
+
+**Use AskUserQuestion tool:**
+
+```
+Question: "Did anything unexpected come up during implementation?"
+
+Options:
+1. No, straightforward implementation
+2. Yes, encountered issues worth documenting
+```
+
+**If user selects Option 2:**
+
+Run the `/compound` command to capture the lesson:
+- What was the unexpected issue?
+- What was the solution?
+- How can future plans avoid this?
+
+**Worth documenting if:**
+- Plan assumptions proved wrong (e.g., API limitations, deployment constraints)
+- Security issues discovered during review
+- Architectural pivots required
+- Non-obvious debugging that took significant time
+
+**Skip documentation for:**
+- Simple typos or syntax errors
+- Straightforward implementations matching the plan
+- Minor adjustments within expected scope
+
 ---
 
 ## Key Principles
