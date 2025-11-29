@@ -5,6 +5,12 @@ All notable changes to the compounding-engineering plugin will be documented in 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.8.3] - 2025-11-29
+
+### Fixed
+
+- **`gemini-imagegen` skill** - Added critical documentation about file format handling. Gemini returns JPEG by default, so using `.jpg` extension is required to avoid "Image does not match media type" API errors. Added examples for PNG conversion when needed and format verification.
+
 ## [2.8.2] - 2025-11-28
 
 ### Changed
