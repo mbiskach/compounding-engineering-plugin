@@ -1,9 +1,64 @@
 # Changelog
 
-All notable changes to the compounding-engineering plugin will be documented in this file.
+All notable changes to the compound-engineering plugin will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.10.0] - 2025-12-10
+
+### Added
+
+- **`agent-native-reviewer` agent** - New review agent that verifies features are agent-native. Checks that any action a user can take, an agent can also take (Action Parity), and anything a user can see, an agent can see (Context Parity). Enforces the principle: "Whatever the user can do, the agent can do."
+- **`agent-native-architecture` skill** - Build AI agents using prompt-native architecture where features are defined in prompts, not code. Includes patterns for MCP tool design, system prompts, self-modification, and refactoring to prompt-native.
+
+### Changed
+
+- **`/review` command** - Added `agent-native-reviewer` to the parallel review agents. Code reviews now automatically check if new features are accessible to agents.
+
+### Fixed
+
+- **Documentation** - Fixed mermaid diagram legibility in dark mode by changing stroke color to white (PR #45 by @rickmanelius)
+
+## [2.9.4] - 2025-12-08
+
+### Changed
+
+- **`/work` command** - Improved screenshot documentation for PR creation. Made capturing screenshots REQUIRED for any UI changes. Updated to use `imgup` skill with `pixhost` as default host (no API key needed). Clarified what to capture: new screens, before/after for modifications, and Figma design matches.
+
+## [2.9.3] - 2025-12-05
+
+### Changed
+
+- **`/plan` command** - Added "Open plan in editor" as the first option in post-generation menu. This opens the plan file in the user's default editor for review before deciding on next steps.
+
+## [2.9.2] - 2025-12-04
+
+### Added
+
+- **`/work` command** - Added screenshot documentation step for UI changes. Before creating PRs, use Playwright to capture before/after screenshots, upload via 0x0.st (using imgup skill), and include in PR description.
+
+## [2.9.1] - 2025-12-04
+
+### Changed
+
+- **`/plan` command** - Reordered post-generation options: Review first, Work locally second, Work on remote third (using `&` for background execution). Removed "Rework" as separate option since "Other" handles custom changes.
+
+## [2.9.0] - 2025-12-02
+
+### Changed
+
+- **Plugin renamed** from `compounding-engineering` to `compound-engineering`. Shorter name, same philosophy. Users will need to reinstall with the new name.
+
+### Fixed
+
+- **Documentation counts** - Updated all documentation to reflect actual component counts (24 agents, 19 commands).
+
+## [2.8.3] - 2025-11-29
+
+### Fixed
+
+- **`gemini-imagegen` skill** - Added critical documentation about file format handling. Gemini returns JPEG by default, so using `.jpg` extension is required to avoid "Image does not match media type" API errors. Added examples for PNG conversion when needed and format verification.
 
 ## [2.8.2] - 2025-11-28
 
@@ -57,7 +112,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **`/report-bug` command** - New slash command for reporting bugs in the compounding-engineering plugin. Provides a structured workflow that gathers bug information through guided questions, collects environment details automatically, and creates a GitHub issue in the EveryInc/every-marketplace repository. Designed to be user-friendly for anyone using the plugin.
+- **`/report-bug` command** - New slash command for reporting bugs in the compound-engineering plugin. Provides a structured workflow that gathers bug information through guided questions, collects environment details automatically, and creates a GitHub issue in the EveryInc/every-marketplace repository. Designed to be user-friendly for anyone using the plugin.
 
 ## [2.4.1] - 2024-11-24
 
@@ -203,7 +258,7 @@ Major reorganization consolidating agents, commands, and skills from multiple so
 
 ## [1.0.0] - 2024-10-09
 
-Initial release of the compounding-engineering plugin.
+Initial release of the compound-engineering plugin.
 
 ### Added
 

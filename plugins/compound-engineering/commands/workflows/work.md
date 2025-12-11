@@ -172,7 +172,37 @@ This command takes a work document (plan, specification, or todo file) and execu
    )"
    ```
 
-2. **Create Pull Request**
+2. **Capture and Upload Screenshots for UI Changes** (REQUIRED for any UI work)
+
+   For **any** design changes, new views, or UI modifications, you MUST capture and upload screenshots:
+
+   **Step 1: Start dev server** (if not running)
+   ```bash
+   bin/dev  # Run in background
+   ```
+
+   **Step 2: Capture screenshots with Playwright MCP tools**
+   - `browser_navigate` to go to affected pages
+   - `browser_resize` to set viewport (desktop or mobile as needed)
+   - `browser_snapshot` to verify page state
+   - `browser_take_screenshot` to capture images
+
+   **Step 3: Upload using imgup skill**
+   ```bash
+   skill: imgup
+   # Then upload each screenshot:
+   imgup -h pixhost screenshot.png  # pixhost works without API key
+   # Alternative hosts: catbox, imagebin, beeimg
+   ```
+
+   **What to capture:**
+   - **New screens**: Screenshot of the new UI
+   - **Modified screens**: Before AND after screenshots
+   - **Design implementation**: Screenshot showing Figma design match
+
+   **IMPORTANT**: Always include uploaded image URLs in PR description. This provides visual context for reviewers and documents the change.
+
+3. **Create Pull Request**
 
    ```bash
    git push -u origin feature-branch-name
@@ -187,8 +217,10 @@ This command takes a work document (plan, specification, or todo file) and execu
    - Tests added/modified
    - Manual testing performed
 
-   ## Screenshots/Videos
-   [If UI changes]
+   ## Before / After Screenshots
+   | Before | After |
+   |--------|-------|
+   | ![before](URL) | ![after](URL) |
 
    ## Figma Design
    [Link if applicable]
@@ -198,7 +230,7 @@ This command takes a work document (plan, specification, or todo file) and execu
    )"
    ```
 
-3. **Notify User**
+4. **Notify User**
    - Summarize what was completed
    - Link to PR
    - Note any follow-up work needed
@@ -281,8 +313,9 @@ Before creating PR, verify:
 - [ ] Linting passes (use linting-agent)
 - [ ] Code follows existing patterns
 - [ ] Figma designs match implementation (if applicable)
+- [ ] Before/after screenshots captured and uploaded (for UI changes)
 - [ ] Commit messages follow conventional format
-- [ ] PR description includes summary and testing notes
+- [ ] PR description includes summary, testing notes, and screenshots
 
 ## When to Use Reviewer Agents
 

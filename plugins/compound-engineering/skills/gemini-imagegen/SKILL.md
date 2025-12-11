@@ -192,9 +192,46 @@ response = client.models.generate_content(
 )
 ```
 
+## Important: File Format & Media Type
+
+**CRITICAL:** The Gemini API returns images in JPEG format by default. When saving, always use `.jpg` extension to avoid media type mismatches.
+
+```python
+# CORRECT - Use .jpg extension (Gemini returns JPEG)
+image.save("output.jpg")
+
+# WRONG - Will cause "Image does not match media type" errors
+image.save("output.png")  # Creates JPEG with PNG extension!
+```
+
+### Converting to PNG (if needed)
+
+If you specifically need PNG format:
+
+```python
+from PIL import Image
+
+# Generate with Gemini
+for part in response.parts:
+    if part.inline_data:
+        img = part.as_image()
+        # Convert to PNG by saving with explicit format
+        img.save("output.png", format="PNG")
+```
+
+### Verifying Image Format
+
+Check actual format vs extension with the `file` command:
+
+```bash
+file image.png
+# If output shows "JPEG image data" - rename to .jpg!
+```
+
 ## Notes
 
 - All generated images include SynthID watermarks
+- Gemini returns **JPEG format by default** - always use `.jpg` extension
 - Image-only mode (`responseModalities: ["IMAGE"]`) won't work with Google Search grounding
 - For editing, describe changes conversationally—the model understands semantic masking
 - Default to 1K resolution for speed; use 2K/4K when quality is critical

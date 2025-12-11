@@ -6,19 +6,20 @@ AI-powered development tools that get smarter with every use. Make each unit of 
 
 | Component | Count |
 |-----------|-------|
-| Agents | 23 |
-| Commands | 16 |
-| Skills | 11 |
+| Agents | 25 |
+| Commands | 19 |
+| Skills | 12 |
 | MCP Servers | 2 |
 
 ## Agents
 
 Agents are organized into categories for easier discovery.
 
-### Review (10)
+### Review (12)
 
 | Agent | Description |
 |-------|-------------|
+| `agent-native-reviewer` | Verify features are agent-native (action + context parity) |
 | `architecture-strategist` | Analyze architectural decisions and compliance |
 | `code-simplicity-reviewer` | Final pass for simplicity and minimalism |
 | `data-integrity-guardian` | Database migrations and data integrity |
@@ -29,6 +30,7 @@ Agents are organized into categories for easier discovery.
 | `pattern-recognition-specialist` | Analyze code for patterns and anti-patterns |
 | `performance-oracle` | Performance analysis and optimization |
 | `security-sentinel` | Security audits and vulnerability assessments |
+| `julik-frontend-races-reviewer` | Review JavaScript/Stimulus code for race conditions |
 
 ### Research (4)
 
@@ -86,7 +88,7 @@ Core workflow commands (use the short form for autocomplete):
 | `/heal-skill` | Fix skill documentation issues |
 | `/plan_review` | Multi-agent plan review in parallel |
 | `/prime` | Prime/setup command |
-| `/report-bug` | Report a bug in the compounding-engineering plugin |
+| `/report-bug` | Report a bug in the compound-engineering plugin |
 | `/reproduce-bug` | Reproduce bugs using logs and console |
 | `/resolve_parallel` | Resolve TODO comments in parallel |
 | `/resolve_pr_parallel` | Resolve PR comments in parallel |
@@ -94,6 +96,12 @@ Core workflow commands (use the short form for autocomplete):
 | `/triage` | Triage and prioritize issues |
 
 ## Skills
+
+### Architecture & Design
+
+| Skill | Description |
+|-------|-------------|
+| `agent-native-architecture` | Build AI agents using prompt-native architecture |
 
 ### Development Tools
 
@@ -161,7 +169,7 @@ MCP servers start automatically when the plugin is enabled.
 ## Installation
 
 ```bash
-claude /plugin install compounding-engineering
+claude /plugin install compound-engineering
 ```
 
 ## Known Issues
